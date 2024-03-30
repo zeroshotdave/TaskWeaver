@@ -1,5 +1,6 @@
 {
-  "llm.api_base": "https://api.openai.com/v1",
-  "llm.api_key": "",
-  "llm.model": "gpt-4-1106-preview"
+    "llm.api_base": "https://api.groq.com/openai/v1",
+    "llm.api_key": "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",
+    "llm.model": "mixtral-8x7b-32768",
+    "execution_service.kernel_mode": "local"
 }

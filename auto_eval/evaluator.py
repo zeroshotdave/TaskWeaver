@@ -42,14 +42,14 @@ def config_llm(config: Dict[str, str]) -> Union[ChatOpenAI, AzureChatOpenAI]:
             openai_api_key=get_config(config, "llm.api_key"),
             openai_api_version=get_config(config, "llm.api_version"),
             azure_deployment=get_config(config, "llm.model"),
-            temperature=0,
+            temperature=0.1,
             verbose=True,
         )
     elif api_type == "openai":
         model = ChatOpenAI(
             openai_api_key=get_config(config, "llm.api_key"),
             model_name=get_config(config, "llm.model"),
-            temperature=0,
+            temperature=0.1,
             verbose=True,
         )
     else:

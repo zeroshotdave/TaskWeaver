@@ -53,11 +53,11 @@ class LLMModuleConfig(ModuleConfig):
             required=False,
         )
 
-        self.response_format: Optional[str] = self._get_enum(
-            "response_format",
-            options=["json_object", "text"],
-            default="json_object",
-        )
+        # self.response_format: Optional[str] = self._get_enum(
+        #     "response_format",
+        #     options=["json_object", "text"],
+        #     default="json_object",
+        # )
 
         self.use_mock: bool = self._get_bool("use_mock", False)
 

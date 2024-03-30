@@ -43,7 +43,7 @@ class OpenAIServiceConfig(LLMServiceConfig):
             shared_embedding_model if shared_embedding_model is not None else "text-embedding-ada-002",
         )
 
-        self.response_format = self.llm_module_config.response_format
+        # self.response_format = self.llm_module_config.response_format
 
         # openai specific config
         self.api_version = self._get_str("api_version", "2023-12-01-preview")
@@ -91,7 +91,7 @@ class OpenAIServiceConfig(LLMServiceConfig):
         )
 
         self.stop_token = self._get_list("stop_token", DEFAULT_STOP_TOKEN)
-        self.temperature = self._get_float("temperature", 0)
+        self.temperature = self._get_float("temperature", 1.2)
         self.max_tokens = self._get_int("max_tokens", 1024)
         self.top_p = self._get_float("top_p", 0)
         self.frequency_penalty = self._get_float("frequency_penalty", 0)
@@ -146,8 +146,8 @@ class OpenAIService(CompletionService, EmbeddingService):
                 tools_kwargs["tool_choice"] = kwargs["tool_choice"]
             if "response_format" in kwargs:
                 response_format = kwargs["response_format"]
-            elif self.config.response_format == "json_object":
-                response_format = {"type": "json_object"}
+            # elif self.config.response_format == "json_object":
+            #     response_format = {"type": "json_object"}
             else:
                 response_format = None
 
